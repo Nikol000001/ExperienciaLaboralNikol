@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikol Jaramillo | Portafolio & Experiencia Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0b0d;
+      --bg-card: #13151a;
+      --bg-card-hover: #1a1d24;
+      --border-color: #242832;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent-green: #2d6a4f;
+      --accent-green-bright: #40916c;
+      --accent-glow: rgba(64, 145, 108, 0.25);
+      --badge-bg: rgba(45, 106, 79, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.5;
+      padding: 2rem;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(45, 106, 79, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(27, 67, 50, 0.1) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* HEADER & HERO SECTION */
+    .profile-hero {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .profile-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent-green-bright), var(--accent-green));
+    }
+
+    .photo-container {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--accent-green-bright), var(--border-color));
+      flex-shrink: 0;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #1a1a1a;
+      display: block;
+    }
+
+    .hero-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-title-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-info h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .status-tag {
+      background: var(--badge-bg);
+      color: #52b788;
+      border: 1px solid var(--accent-green-bright);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #52b788;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #52b788;
+    }
+
+    .hero-subtitle {
+      color: var(--accent-green-bright);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-description {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 900px;
+      margin-bottom: 1.2rem;
+    }
+
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* GRID DE TARJETAS */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.6rem;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-green-bright);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4), 0 0 15px var(--accent-glow);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(45, 106, 79, 0.15);
+      border: 1px solid rgba(64, 145, 108, 0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-green-bright);
+    }
+
+    .card-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #ffffff;
+    }
+
+    .card-company {
+      font-size: 0.9rem;
+      color: var(--accent-green-bright);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-text {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
+
+    .card-text ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .card-text li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-text li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent-green-bright);
+    }
+
+    .links-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.5px;
+    }
+
+    .links-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #1c2029;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-link:hover {
+      background: var(--accent-green);
+      color: #ffffff;
+      border-color: var(--accent-green-bright);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 1rem; }
+      .profile-hero { flex-direction: column; text-align: center; }
+      .hero-title-row { justify-content: center; }
+      .meta-pills { justify-content: center; }
+      .dashboard-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- HEADER / HERO -->
+    <header class="profile-hero">
+      <div class="photo-container">
+        <!-- Busca automáticamente FotoNikol.png o FotoNikol.jpg -->
+        <img src="FotoNikol.png" onerror="this.src='FotoNikol.jpg'; this.onerror=null;" alt="Nikol Jaramillo" class="profile-photo">
+      </div>
+      
+      <div class="hero-info">
+        <div class="hero-title-row">
+          <h1>Nikol Jaramillo</h1>
+          <span class="status-tag">
+            <span class="status-dot"></span> Disponible Trabajo Remoto
+          </span>
+        </div>
+        
+        <div class="hero-subtitle">Ingeniero Multimedia en Formación (7.° Semestre) &amp; Editor de Video Senior</div>
+        
+        <p class="hero-description">
+          20 años. Estudiante en la Universidad San Buenaventura de Cali. Especializado en edición de video orientada a retención y ventas, motion graphics, desarrollo web y creación de estrategias digitales. Profesional puntual, autogestionado y enfocado en optimizar procesos de inicio a fin.
+        </p>
+
+        <div class="meta-pills">
+          <div class="pill">⏱️ <strong>Disponibilidad:</strong> Lunes a Sábado</div>
+          <div class="pill">💼 <strong>Modalidad:</strong> Remoto (Part-time / Full-time 9-10h/día)</div>
+          <div class="pill">📍 <strong>Ubicación:</strong> Cali, Colombia</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- GRID DE TARJETAS DE EXPERIENCIA -->
+    <main class="dashboard-grid">
+
+      <!-- TARJETA 1: 305MediaClub -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🎬</div>
+          <span class="card-badge">Marketing Agency</span>
+        </div>
+        <h2 class="card-title">Editor Principal de Video</h2>
+        <div class="card-company">305MediaClub</div>
+        <div class="card-text">
+          <ul>
+            <li>Lideré la edición audiovisual estratégica para marcas de la agencia.</li>
+            <li>Optimización de cortes, ritmo visual y ganchos de alta retención para redes sociales.</li>
+            <li>Generación de contenido dinámico enfocado en engagement constante.</li>
+          </ul>
+        </div>
+        <div class="links-title">Ejemplos de Reels Producidos</div>
+        <div class="links-group">
+          <a href="https://www.instagram.com/p/DWwUZsJiViq/" target="_blank" class="btn-link">Ver Reel #1 ↗</a>
+          <a href="https://www.instagram.com/p/DWnTbxdCT2G/" target="_blank" class="btn-link">Ver Reel #2 ↗</a>
+          <a href="https://www.instagram.com/p/DVZ4aTFCd4U/" target="_blank" class="btn-link">Ver Reel #3 ↗</a>
+        </div>
+      </article>
+
+      <!-- TARJETA 2: Cesar Pizelli -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🧠</div>
+          <span class="card-badge">Long-Form &amp; Youtube</span>
+        </div>
+        <h2 class="card-title">Edición &amp; Motion Graphics</h2>
+        <div class="card-company">Cesar Pizelli (Influencer)</div>
+        <div class="card-text">
+          <ul>
+            <li>Edición de contenido educativo en formato largo con alto nivel de análisis.</li>
+            <li>Diseño de animaciones e infografías en movimiento (Motion Graphics) para facilitar el aprendizaje.</li>
+            <li>Estructuración de storytelling enfocado en mantener la atención durante todo el metraje.</li>
+          </ul>
+        </div>
+        <div class="links-title">Proyectos Destacados en YouTube</div>
+        <div class="links-group">
+          <a href="https://youtu.be/d55NAOGUis8?si=g8Kd2l_Wg-o4lrGd" target="_blank" class="btn-link">Video Educativo 1 ↗</a>
+          <a href="https://youtu.be/2KKFJ8aX9AI?si=s0KXxMBCK9IM7csT" target="_blank" class="btn-link">Video Educativo 2 ↗</a>
+        </div>
+      </article>
+
+      <!-- TARJETA 3: Edición Educativa (Progresso & Uaden) -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">📚</div>
+          <span class="card-badge">EdTech &amp; Cursos</span>
+        </div>
+        <h2 class="card-title">Edición para EdTech &amp; Cursos</h2>
+        <div class="card-company">Progresso Learning &amp; Uaden Prime</div>
+        <div class="card-text">
+          <ul>
+            <li>Creación de micro-contenido dinámico para la enseñanza de inglés en Progresso Learning.</li>
+            <li>Postproducción de videos promocionales e institucionales para la plataforma Uaden Prime.</li>
+            <li>Sincronización clara de subtítulos, efectos de sonido y resaltados visuales.</li>
+          </ul>
+        </div>
+        <div class="links-title">Contenido Publicado</div>
+        <div class="links-group">
+          <a href="https://www.instagram.com/p/Da5fSz9j7nn/?hl=en" target="_blank" class="btn-link">Reel Progresso #1 ↗</a>
+          <a href="https://www.instagram.com/p/DaqCkuYAugb/?hl=en" target="_blank" class="btn-link">Reel Progresso #2 ↗</a>
+          <a href="https://www.youtube.com/watch?v=Rd_-IQXNo1A&t=6s" target="_blank" class="btn-link">Video Uaden Prime ↗</a>
+        </div>
+      </article>
+
+      <!-- TARJETA 4: CelularNyM - Video para Ventas -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">📱</div>
+          <span class="card-badge">E-Commerce &amp; Tech</span>
+        </div>
+        <h2 class="card-title">Video Marketing Enfocado en Ventas</h2>
+        <div class="card-company">CelularNyM</div>
+        <div class="card-text">
+          <ul>
+            <li>Producción visual de Reels comerciales con directa orientación a la conversión de clientes.</li>
+            <li>Estrategia visual destacando especificaciones técnicas de tecnología de forma atractiva.</li>
+            <li>Integración de llamadas a la acción (CTA) efectivas.</li>
+          </ul>
+        </div>
+        <div class="links-title">Reels de Alto Rendimiento</div>
+        <div class="links-group">
+          <a href="https://www.instagram.com/p/DcbmjMfhlEE/" target="_blank" class="btn-link">Reel Comercial 1 ↗</a>
+          <a href="https://www.instagram.com/p/DWXan0fDZt6/" target="_blank" class="btn-link">Reel Comercial 2 ↗</a>
+          <a href="https://www.instagram.com/p/DV9KS-OCfXb/" target="_blank" class="btn-link">Reel Comercial 3 ↗</a>
+        </div>
+      </article>
+
+      <!-- TARJETA 5: Tráfico Pago & Ads -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🚀</div>
+          <span class="card-badge">Paid Media</span>
+        </div>
+        <h2 class="card-title">Estratega de Meta Ads &amp; TikTok Ads</h2>
+        <div class="card-company">CelularNyM &amp; 305MediaClub</div>
+        <div class="card-text">
+          <ul>
+            <li>Planeación, montaje y gestión de campañas publicitarias orientadas a ROI.</li>
+            <li>Creación de creativos visuales específicamente testeados para anuncios de alta conversión.</li>
+            <li>Segmentación de audiencias y optimización de presupuesto publicitario.</li>
+          </ul>
+        </div>
+        <div class="links-title">Especialidades</div>
+        <div class="links-group">
+          <span class="btn-link" style="cursor:default;">Meta Ads Manager</span>
+          <span class="btn-link" style="cursor:default;">TikTok Ads Manager</span>
+        </div>
+      </article>
+
+      <!-- TARJETA 6: Desarrollo Web -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">💻</div>
+          <span class="card-badge">Web Development</span>
+        </div>
+        <h2 class="card-title">Desarrollador Web &amp; UX/UI</h2>
+        <div class="card-company">Ingeniería Multimedia</div>
+        <div class="card-text">
+          <ul>
+            <li>Diseño y maquetación de sitios web modernos, adaptables y rápidos.</li>
+            <li>Aplicación de buenas prácticas de UX/UI para maximizar la navegación fluida.</li>
+            <li>Capacidad para integrar código limpio con componentes interactivos y multimedia.</li>
+          </ul>
+        </div>
+        <div class="links-title">Proyectos Web</div>
+        <div class="links-group">
+          <span class="btn-link" style="cursor:default;">🌐 Próximamente demo interactiva</span>
+        </div>
+      </article>
+
+      <!-- TARJETA 7: Ventas, Logística & Asesoría -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🤝</div>
+          <span class="card-badge">Sales &amp; Operations</span>
+        </div>
+        <h2 class="card-title">Asesor Comercial &amp; Operaciones</h2>
+        <div class="card-company">Empresa Familiar - CelularNyM</div>
+        <div class="card-text">
+          <ul>
+            <li>Venta directa consultiva y orientación personalizada al cliente final.</li>
+            <li>Configuración técnica, migración de datos y registro legal del equipo celular.</li>
+            <li>Gestión de inventarios, recepción, carga y despacho logístico de productos.</li>
+          </ul>
+        </div>
+        <div class="links-title">Habilidades Clave</div>
+        <div class="links-group">
+          <span class="btn-link" style="cursor:default;">Atención al Cliente</span>
+          <span class="btn-link" style="cursor:default;">Logística &amp; Registro</span>
+        </div>
+      </article>
+
+    </main>
+
+    <footer>
+      © 2026 Nikol Jaramillo — Ingeniero Multimedia &amp; Creador de Contenido
+    </footer>
+
+  </div>
+
+</body>
+</html>
